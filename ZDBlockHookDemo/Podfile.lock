@@ -1,0 +1,23 @@
+PODS:
+  - libffi-core (1.2.0)
+  - ZDBlockHook (0.0.1)
+
+DEPENDENCIES:
+  - libffi-core
+  - ZDBlockHook (from `../`)
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - libffi-core
+
+EXTERNAL SOURCES:
+  ZDBlockHook:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  libffi-core: c4049ed88381fee5c0a31d26c860fc427d3c301c
+  ZDBlockHook: 646d1aa9104f99f01e6b8ff33aa6ef45c1a78bd2
+
+PODFILE CHECKSUM: 2600c7c994ae358e625dc5776f863eae7b313123
+
+COCOAPODS: 1.5.3
