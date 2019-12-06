@@ -16,7 +16,7 @@
 
 @interface ZD_AVOID_ALL_LOAD_FLAG_FOR_CATEGORY_ZDBlockHook_ : NSObject @end
 @implementation ZD_AVOID_ALL_LOAD_FLAG_FOR_CATEGORY_ZDBlockHook_ @end
-
+/*
 #pragma mark - Block Define
 #pragma mark -
 
@@ -66,7 +66,7 @@ struct ZDBlock_layout {
     struct Block_descriptor_1 *descriptor;
     // imported variables
 };
-
+*/
 typedef struct ZDBlock_layout ZDBlock;
 
 #pragma mark - Function
