@@ -498,13 +498,12 @@ static void ZD_ffi_prep_cif(NSMethodSignature *signature) {
     NSUInteger argCount = signature.numberOfArguments; // 第一个参数是block自己，第二个参数才是我们看到的参数
     //ffi_type **args = alloca(sizeof(ffi_type *) * argCount); // 栈上开辟内存
     ffi_type **args = calloc(argCount, sizeof(ffi_type *)); // 堆上开辟内存
-    int tempInt = 0;
-    for (int i = tempInt; i < argCount; ++i) {
+    for (int i = 0; i < argCount; ++i) {
         const char *realArgType = [signature getArgumentTypeAtIndex:i];
         const char *reducedArgType = ZD_ReduceBlockSignatureCodingType(realArgType).UTF8String;
         ffi_type *arg_ffi_type = ZD_ffiTypeWithTypeEncoding(reducedArgType);
         NSCAssert(arg_ffi_type, @"can't find a ffi_type ==> %s", realArgType);
-        args[i-tempInt] = arg_ffi_type;
+        args[i] = arg_ffi_type;
     }
     self->_blockArgs = args;
     
@@ -533,7 +532,7 @@ static void ZD_ffi_closure_func(ffi_cif *cif, void *ret, void **args, void *user
     
     // https://github.com/sunnyxx/libffi-iOS/blob/master/Demo/ViewController.m
     // 根据cif (函数原型，函数指针，返回值内存指针，函数参数) 调用这个函数
-    ffi_call(&(self->_blockCif), self->_originalIMP, ret, args);
+    ffi_call(cif, self->_originalIMP, ret, args);
     
     // 执行完毕之后恢复为原来的IMP
     ((__bridge ZDBlock *)self.block)->invoke = self->_originalIMP;
