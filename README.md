@@ -2,7 +2,7 @@
 
 #### 起因：
 
-![block_sunnyxx](./Resource/block_sunnyxx.jpeg)
+![block_sunnyxx](./Resource/block_sunnyxx.png)
 
 #### 实现方式：
 
@@ -11,5 +11,3 @@
 1. 消息转发
 
 2. [libffi](https://github.com/libffi/libffi)
-
-   
